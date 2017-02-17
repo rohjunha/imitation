@@ -18,7 +18,7 @@ training:
     # Behavioral cloning
     - name: bclone
       cmd: >
-        python scripts/imitate_mj.py --mode bclone
+        python imitate_mj.py --mode bclone
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -31,7 +31,7 @@ training:
     # Generative adversarial imitation learning
     - name: ga_entreg0
       cmd: >
-        python scripts/imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -46,7 +46,7 @@ training:
     # Generative adversarial imitation learning
     - name: ga_entreg-1
       cmd: >
-        python scripts/imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -62,7 +62,7 @@ training:
     # Generative adversarial imitation learning
     - name: ga_entreg-2
       cmd: >
-        python scripts/imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -78,7 +78,7 @@ training:
     # Generative adversarial imitation learning
     - name: ga_entreg-3
       cmd: >
-        python scripts/imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
