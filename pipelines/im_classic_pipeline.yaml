@@ -23,7 +23,7 @@ training:
     # Behavioral cloning
     - name: bclone
       cmd: >
-        python /imitate_mj.py --mode bclone
+        python imitate_mj.py --mode bclone
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -36,7 +36,7 @@ training:
     # Generative adversarial (neural network adversary)
     - name: ga
       cmd: >
-        python /imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -51,7 +51,7 @@ training:
     # Apprenticeship learning (feature expectation matching)
     - name: fem
       cmd: >
-        python /imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}
@@ -68,7 +68,7 @@ training:
     # Apprenticeship learning (finite set of adversary rewards)
     - name: simplex # "game-theoretic" apprenticeship learning
       cmd: >
-        python /imitate_mj.py --mode ga
+        python imitate_mj.py --mode ga
         --env {env}
         --data {dataset}
         --limit_trajs {num_trajs}

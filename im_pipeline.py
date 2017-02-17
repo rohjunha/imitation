@@ -262,19 +262,13 @@ def phase1_train(spec, specfilename):
                         'out': os.path.join(checkptdir, strid + '.h5'),
                     })
 
-    pbsopts = spec['options']['pbs']
-    runpbs(
-        cmd_templates, outputfilenames, argdicts,
-        jobname=pbsopts['jobname'], queue=pbsopts['queue'], nodes=1, ppn=pbsopts['ppn'],
-        job_range=pbsopts['range'] if 'range' in pbsopts else None,
-        qsub_script_copy=os.path.join(checkptdir, 'qsub_script.sh')
-    )
+    for x, y in zip(cmd_templates, argdicts):  
+        subprocess.call (x.format(**y).split(" "))
 
     # Copy the pipeline yaml file to the output dir too
     shutil.copyfile(specfilename, os.path.join(checkptdir, 'pipeline.yaml'))
 
     # Keep git commit
-    import subprocess
     git_hash = subprocess.check_output('git rev-parse HEAD', shell=True).strip()
     with open(os.path.join(checkptdir, 'git_hash.txt'), 'w') as f:
         f.write(git_hash + '\n')
